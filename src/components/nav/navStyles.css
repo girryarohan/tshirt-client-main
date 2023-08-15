@@ -1,0 +1,46 @@
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.navBarCustom {
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin-left: 0 !important;
+}
+
+.flexAdjustToRight {
+  margin-left: auto !important;
+}
+
+.searchComponent {
+  display: flex !important;
+  justify-content: right !important;
+  align-items: center !important;
+  min-width: 68px;
+  margin: 0px 16px;
+  order: 2;
+  flex-grow: 1;
+}
+
+.menuStyles > li > span > a {
+  text-decoration: none;
+}
+.ant-menu-title-content > a {
+  text-decoration: none;
+}
+
+.cartStyle > span {
+  color: inherit;
+}
+.cartExpand {
+  min-width: 95px;
+}

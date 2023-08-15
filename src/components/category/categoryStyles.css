@@ -1,0 +1,7 @@
+.categoryCard {
+  display: flex;
+  justify-content: space-between !important;
+}
+.cardStyle {
+  padding-bottom: 12px;
+}
