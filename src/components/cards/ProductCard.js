@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Card, Tooltip } from "antd";
+import { Card, Tooltip, message } from "antd";
 import {
   EyeOutlined,
   FundViewOutlined,
-  ShoppingCartOutlined,
+  WhatsAppOutlined,
 } from "@ant-design/icons";
 import noimage from "../../images/noimage.jpg";
 import { Link } from "react-router-dom";
@@ -67,6 +67,17 @@ function ProductCard({ product }) {
   // destructure
   const { title, description, images, slug, price } = product;
 
+  const message = `Hi, I want to buy ${title} - ${price}`;
+  // const urlWA = `http://wa.me/send?phone=${number}&text=${message}`;
+
+  // Regex expression to remove all characters which are NOT alphanumeric
+  let number = "+918779552324".replace(/[^\w\s]/gi, "").replace(/ /g, "");
+
+  // Appending the phone number to the URL
+  let finalurl = `https://web.whatsapp.com/send?phone=${number}`;
+
+  // Appending the message to the URL by encoding it
+  finalurl += `&text=${encodeURI(message)}&app_absent=0`;
   return (
     <>
       {product && product.ratings && product.ratings.length > 0 ? (
@@ -90,6 +101,19 @@ function ProductCard({ product }) {
             <br />
             View Product
           </Link>,
+          <Tooltip title={tooltip}>
+            <a href={finalurl}>
+              {/* {myProducts.includes(product._id) ? (
+                <FundViewOutlined />
+              ) : (
+                <ShoppingCartOutlined className="text-danger" />
+              )}{" "} */}
+              <WhatsAppOutlined className="text-success" />
+              <br />
+              Buy Now
+              {/* {myProducts.includes(product._id) ? "View File" : "Add to Cart"} */}
+            </a>
+          </Tooltip>,
           // <Tooltip title={tooltip}>
           //   <a
           //     onClick={handleAddToCart}
